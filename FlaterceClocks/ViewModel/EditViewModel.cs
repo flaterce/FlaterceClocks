@@ -14,6 +14,14 @@ namespace FlaterceClocks.ViewModel
     {
         private Alarm alarm;
 
+        private IMessage[] options =
+        {
+            new SoundMessage(),
+            new TextMessage(),
+            new ShutdownMessage(),
+            new ShutdownMessage()
+        };
+
         public EditViewModel()
         {
             MessengerInstance.Register<AlarmEditingMessage>(this, RecieveAndApplyAlarm);
@@ -127,6 +135,59 @@ namespace FlaterceClocks.ViewModel
             }
         }
 
+        int selectedOption = 0;
+        public int SelectedOption
+        {
+            get
+            {
+                return selectedOption;
+            }
+            set
+            {
+                if (selectedOption != value)
+                {
+                    selectedOption = value;
+                    RaisePropertyChanged("SelectedOption");
+                }
+            }
+        }
+
+        string textMessage = string.Empty;
+        public string TextMessage
+        {
+            get
+            {
+                return textMessage;
+            }
+            set
+            {
+                if (textMessage != value)
+                {
+                    textMessage = value;
+                    RaisePropertyChanged("TextMessage");
+                }
+            }
+        }
+
+        string soundPath;
+        public string SoundPath
+        {
+            get
+            {
+                return soundPath;
+            }
+            set
+            {
+                if (soundPath != value)
+                {
+                    soundPath = value;
+                    RaisePropertyChanged("SoundPath");
+                }
+            }
+        }
+
+
+
         string parameter;
         public string Parameter
         {
@@ -200,8 +261,13 @@ namespace FlaterceClocks.ViewModel
         private void Confirm()
         {
             alarm.ScheduleTime = new TimeSpan(Hours, Minutes, Seconds);
-            //Debug
-            Message = new TextMessage(); Parameter = "Nya";        
+
+            Message = options[SelectedOption];
+            if (Message.GetType() == typeof(SoundMessage))
+                Parameter = SoundPath;
+            if (Message.GetType() == typeof(TextMessage))
+                Parameter = TextMessage;
+
             alarm.Message = Message;
             alarm.Message.Parameter = Parameter;
             alarm.Days = Days;

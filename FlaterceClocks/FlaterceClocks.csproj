@@ -76,6 +76,8 @@
     <Compile Include="Model\Alarm.cs" />
     <Compile Include="Model\AlarmRepository.cs" />
     <Compile Include="Model\IMessage.cs" />
+    <Compile Include="Model\ShutdownMessage.cs" />
+    <Compile Include="Model\SoundMessage.cs" />
     <Compile Include="Model\TextMessage.cs" />
     <Compile Include="ViewModel\EditViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
