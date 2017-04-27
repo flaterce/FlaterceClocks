@@ -8,11 +8,11 @@ namespace FlaterceClocks.Model
 {
     class ShutdownMessage : IMessage
     {
-        public string Parameter { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Parameter { get; set; }
 
         public void Call()
         {
-            throw new NotImplementedException();
+        
         }
     }
 }

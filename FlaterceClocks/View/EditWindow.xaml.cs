@@ -16,6 +16,8 @@ using MahApps.Metro.Controls;
 using System.Windows.Controls.Primitives;
 using FlaterceClocks.ViewModel;
 using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Win32;
+using System.IO;
 
 namespace FlaterceClocks.View
 {
@@ -113,6 +115,15 @@ namespace FlaterceClocks.View
         private void DayToggleButton_UnChecked(object sender, EventArgs e)
         {
             ((EditViewModel)DataContext).RemoveDayCommand.Execute((DayOfWeek)Int32.Parse(((string)(sender as ToggleButton).Tag)));
+        }
+
+        private void browseButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Choose track";
+            openFileDialog.Filter = "(*.mp3)|*.mp3";
+            if (openFileDialog.ShowDialog() == true)
+                soundPathTextBlock.Text = openFileDialog.FileName;
         }
     }
 }

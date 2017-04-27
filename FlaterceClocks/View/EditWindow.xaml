@@ -96,7 +96,7 @@
             <TextBlock HorizontalAlignment="Center" Height="33.766" Margin="0,45,0,0" TextWrapping="Wrap" Text="Repeat" Width="126.234" FontSize="18" TextAlignment="Center" Foreground="#FFB6B6B6" Visibility="Collapsed"/>
             <RadioButton Content="One Time" HorizontalAlignment="Center" Height="24.675" Margin="0" Width="218.442" FontSize="14" Visibility="Collapsed"/>
             <RadioButton Content="Every Day" HorizontalAlignment="Center" Height="24.675" Margin="0,5,0,0" Width="218.442" FontSize="14" Visibility="Collapsed"/>
-            <ComboBox x:Name="messagesComboBox" HorizontalAlignment="Center" Height="27.273" Margin="0,45,0,0" Width="240">
+            <ComboBox x:Name="messagesComboBox" SelectedIndex="{Binding SelectedOption}" HorizontalAlignment="Center" Height="27.273" Margin="0,45,0,0" Width="240">
                 <ComboBoxItem Content="Play track"/>
                 <ComboBoxItem Content="Show text"/>
                 <ComboBoxItem Content="Power Off"/>
@@ -104,14 +104,14 @@
             </ComboBox>
             <TabControl Height="189" HorizontalAlignment="Center" TabStripPlacement="Bottom" Width="240" Margin="0,15,0,0" SelectedIndex="{Binding ElementName=messagesComboBox, Path=SelectedIndex}">
                 <Grid>
-                    <TextBlock x:Name="soundPathTextBox" Height="19.363" Margin="0" TextWrapping="Wrap" Text="C:/zalupa/huy.mp3" VerticalAlignment="Top"/>
-                    <Button Content="Browse" HorizontalAlignment="Left" Margin="0,41,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center"/>
+                    <TextBlock x:Name="soundPathTextBlock" Height="19.363" Margin="0" TextWrapping="Wrap" Text="{Binding SoundPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top"/>
+                    <Button x:Name="browseButton" Content="Browse" HorizontalAlignment="Left" Margin="0,41,0,0" VerticalAlignment="Top" Width="100" HorizontalContentAlignment="Center" Click="browseButton_Click"/>
                 </Grid>
                 <Grid>
                     <RichTextBox Margin="0">
                         <FlowDocument>
                             <Paragraph>
-                                <Run Text="RichTextBox"/>
+                                <Run Text="{Binding TextMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                             </Paragraph>
                         </FlowDocument>
                     </RichTextBox>

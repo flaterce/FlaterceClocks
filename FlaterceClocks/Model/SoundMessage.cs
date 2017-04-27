@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,11 +9,16 @@ namespace FlaterceClocks.Model
 {
     class SoundMessage : IMessage
     {
-        public string Parameter { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Parameter { get; set; }
 
         public void Call()
         {
-            throw new NotImplementedException();
+            System.Windows.MessageBox.Show(Parameter);
+        }
+
+        public override string ToString()
+        {
+            return Path.GetFileName(Parameter);
         }
     }
 }
