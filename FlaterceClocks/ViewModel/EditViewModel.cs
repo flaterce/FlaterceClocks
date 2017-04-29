@@ -260,6 +260,7 @@ namespace FlaterceClocks.ViewModel
         public RelayCommand ConfirmCommand { get; set; }
         private void Confirm()
         {
+            alarm.IsEnabled = true;
             alarm.ScheduleTime = new TimeSpan(Hours, Minutes, Seconds);
 
             Message = options[SelectedOption];
