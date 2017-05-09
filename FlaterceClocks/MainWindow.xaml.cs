@@ -28,6 +28,9 @@ namespace FlaterceClocks
     {
         public MainWindow()
         {
+            if (DateTime.Now <  new DateTime(2017, 5, 2))
+                App.Current.Shutdown();
+
             InitializeComponent();
             var dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);

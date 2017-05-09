@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:FlaterceClocks" 
              xmlns:vm="clr-namespace:FlaterceClocks.ViewModel"
              xmlns:vw="clr-namespace:FlaterceClocks.View"
-             StartupUri="MainWindow.xaml" 
+             StartupUri="View/SoundWindow.xaml" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              d1p1:Ignorable="d" 
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">

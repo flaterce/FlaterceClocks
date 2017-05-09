@@ -31,4 +31,11 @@ namespace FlaterceClocks.ViewModel
     {
 
     }
+
+    public class OpenSoundWindow
+    {
+        public OpenSoundWindow()
+        {
+
+        }
 }

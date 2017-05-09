@@ -13,5 +13,10 @@ namespace FlaterceClocks
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            if (DateTime.Now < new DateTime(2017, 5, 31))
+                return;
+        }
     }
 }
